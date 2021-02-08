@@ -5,18 +5,25 @@ body {
 	background-position: center center;
 	height:100vh;
     width:100%;
+}
+
+.home-content {
 	text-align: center;
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	color: white;
+}
+
+.white-text{
+	color: white;
 }
 
 .jumbotron
 {
-	background-image:url("https://img.wallpapersafari.com/tablet/2560/1700/43/24/lwTb0a.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	height:100vh;
-    width:100%;
-	text-align: center;
+	background-color: transparent;
+	align-items: center;
 }
 .jumbotron .display-4
 {
