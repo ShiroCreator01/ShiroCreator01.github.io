@@ -8,7 +8,7 @@ body {
 }
 
 .form1 {
-	background: rgba(37, 37, 37, 0.0);
+	background: rgba(37, 37, 37, 0.5);
 	position: absolute;
 	padding: 10px 10px 10px 10px;
 	margin-left:10vw;
