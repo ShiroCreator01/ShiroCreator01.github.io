@@ -1,3 +1,13 @@
+body {
+	background-image:url("https://img.wallpapersafari.com/tablet/2560/1700/43/24/lwTb0a.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height:100vh;
+    width:100%;
+	text-align: center;
+}
+
 .jumbotron
 {
 	background-image:url("https://img.wallpapersafari.com/tablet/2560/1700/43/24/lwTb0a.jpg");
