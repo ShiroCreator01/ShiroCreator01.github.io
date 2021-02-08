@@ -18,9 +18,9 @@ body {
 
 .home-footer {
 	position: absolute;
-	top:95vh;
-	left:50vh;
-	transform: translateX(-50%) translateY(-90%);
+	top:95%;
+	left:50%;
+	transform: translateX(-50%) translateY(-95%);
 	color: white;
 }
 
