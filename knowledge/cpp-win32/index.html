@@ -12,6 +12,11 @@ body {
 	background-position: center center;
 }
 
+h1,h2,h3,h4,h5,h6,h7 {
+  color:white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .sidebar {
   height: 100%;
   width: 0;
@@ -85,27 +90,46 @@ body {
 </head>
 <body>
 
-<div id="mySidebar" class="sidebar">
-  <div class="part">Control</div>
-  <a href="#">・Button</a>
-  <a href="#">・CheckBox</a>
-  <a href="#">・ComboBox</a>
-  <a href="#">・Label</a>
-  <a href="#">・ListBox</a>
-  <a href="#">・PasswordBox</a>
-  <a href="#">・RadioButton</a>
-  <a href="#">・TextBox</a>
-  <br>
-  <div class="part">Text</div>
-  <a href="#">・Align</a>
-  <a href="#">・Font</a>
-  <a href="#">・Size</a>
-  <br>
+<div id="main">
+  <button id="toggleNavbar" class="openbtn" onclick="toggleNav()" value="close">☰ C++ Win32</button>  
+  <div id="c_title"><h1>C++ Win32</h1></div>
+  <hr>
 </div>
 
-<div id="main">
-  <button id="toggleNavbar" class="openbtn" onclick="toggleNav()" value="close">☰</button>  
+<div id="mySidebar" class="sidebar">
+  <div class="part">Control</div>
+  <a href="javascript:Change_Title('c_title','Control - Button')">・Button</a>
+  <a href="javascript:Change_Title('c_title','Control - CheckBox')">・CheckBox</a>
+  <a href="javascript:Change_Title('c_title','Control - ComboBox')">・ComboBox</a>
+  <a href="javascript:Change_Title('c_title','Control - Label')">・Label</a>
+  <a href="javascript:Change_Title('c_title','Control - ListBox')">・ListBox</a>
+  <a href="javascript:Change_Title('c_title','Control - PasswordBox')">・PasswordBox</a>
+  <a href="javascript:Change_Title('c_title','Control - RadioButton')">・RadioButton</a>
+  <a href="javascript:Change_Title('c_title','Control - TextBox')">・TextBox</a>
+  <div class="part">Text</div>
+  <a href="javascript:Change_Title('c_title','Text - Align')">・Align</a>
+  <a href="javascript:Change_Title('c_title','Text - Font')">・Font</a>
+  <a href="javascript:Change_Title('c_title','Text - Size')">・Size</a>
+  <div class="part">Window</div>
+  <a href="javascript:Change_Title('c_title','Window - Create')">・Create</a>
 </div>
+
+
+
+<script>
+function CElement(_element, _content, _div){
+  var x = document.createElement(_element);
+  x.innerHTML = _content;
+  document.getElementById(_div).appendChild(x);
+}
+function ClearDiv(id){
+    document.getElementById(id).innerHTML = "";
+}   
+function Change_Title(id,title){
+    ClearDiv(id);
+    CElement('h1',title,id);
+}
+</script>
 
 <script>
 function toggleNav(){
