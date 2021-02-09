@@ -1,5 +1,6 @@
 body {
 	background-image:url("https://img.wallpapersafari.com/tablet/2560/1700/43/24/lwTb0a.jpg");
+	background-attachment: fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
