@@ -199,15 +199,6 @@ function CodeBox(_id, _div){
         case 'ListBox':
             CPre(c_control_listbox,_div);
             break;
-        case 'MultilineTextBox':
-            CPre(c_control_multilinetextbox,_div);
-            break;
-        case 'NumberBox':
-            CPre(c_control_numberbox,_div);
-            break;
-        case 'PasswordBox':
-            CPre(c_control_passwordbox,_div);
-            break;     
         case 'RadioButton':
             CPre(c_control_radiobutton,_div);
             break;       
