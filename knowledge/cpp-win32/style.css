@@ -1,0 +1,83 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-image:url("https://img.wallpapersafari.com/tablet/2560/1700/43/24/lwTb0a.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+  }
+  
+  h1,h2,h3,h4,h5,h6,h7 {
+    color:white;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(163, 163, 163, 0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+  }
+  
+  .sidebar .header {
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    padding-bottom:30px;
+  }
+  
+  .sidebar .part {
+    padding: 3px 2px 3px 16px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a {
+    padding: 3px 2px 3px 24px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: rgba(163, 163, 163, 0.4);
+  }
+  
+  .openbtn {
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(163, 163, 163, 0.5);
+    color: white;
+    padding: 10px 15px;
+  }
+  
+  .openbtn:hover {
+    background-color: rgba(163, 163, 163, 0.4);
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
