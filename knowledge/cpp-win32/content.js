@@ -148,6 +148,8 @@ HINSTANCE hInst = NULL;
 LPVOID lpParam = NULL;
 HWND txtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
 `;
+var clt_setText = `Set Text`;
+var cl_setText = `SetWindowText(txtbox1, (new string("New Text"))->c_str());`;
 var t_1 = `#include <Windows.h>
 #include <tchar.h>
 #include <iostream>
@@ -158,6 +160,13 @@ using namespace std;
 function CElement(_element, _content, _div){
     var x = document.createElement(_element);
     x.innerHTML = _content;
+    document.getElementById(_div).appendChild(x);
+}
+
+function CH3(_content, _div){
+    var x = document.createElement("h3");
+    var t = document.createTextNode(_content);
+    x.appendChild(t);
     document.getElementById(_div).appendChild(x);
 }
 
@@ -208,4 +217,57 @@ function CodeBox(_id, _div){
         default:
             break;
     }
+}
+
+function Show_Control_Button(){
+    ChangeTitle('c_title','Control - Button');
+    CodeBox('Template1','_box1');
+    CodeBox('Button','_box2');
+    ClearDiv('_1box');
+    CH3(clt_setText,'_1box');
+    CPre(cl_setText,'_1box');
+}
+function Show_Control_CheckBox(){
+    ChangeTitle('c_title','Control - CheckBox');
+    CodeBox('Template1','_box1');
+    CodeBox('CheckBox','_box2');
+    ClearDiv('_1box');
+    CH3(clt_setText,'_1box');
+    CPre(cl_setText,'_1box');
+}
+function Show_Control_ComboBox(){
+    ChangeTitle('c_title','Control - ComboBox');
+    CodeBox('Template1','_box1');
+    CodeBox('ComboBox','_box2');
+    ClearDiv('_1box');
+}
+function Show_Control_Label(){
+    ChangeTitle('c_title','Control - Label');
+    CodeBox('Template1','_box1');
+    CodeBox('Label','_box2');
+    ClearDiv('_1box');
+    CH3(clt_setText,'_1box');
+    CPre(cl_setText,'_1box');
+}
+function Show_Control_ListBox(){
+    ChangeTitle('c_title','Control - ListBox');
+    CodeBox('Template1','_box1');
+    CodeBox('ListBox','_box2');
+    ClearDiv('_1box');
+}
+function Show_Control_RadioButton(){
+    ChangeTitle('c_title','Control - RadioButton');
+    CodeBox('Template1','_box1');
+    CodeBox('RadioButton','_box2');
+    ClearDiv('_1box');
+    CH3(clt_setText,'_1box');
+    CPre(cl_setText,'_1box');
+}
+function Show_Control_TextBox(){
+    ChangeTitle('c_title','Control - TextBox');
+    CodeBox('Template1','_box1');
+    CodeBox('TextBox','_box2');
+    ClearDiv('_1box');
+    CH3(clt_setText,'_1box');
+    CPre(cl_setText,'_1box');
 }
