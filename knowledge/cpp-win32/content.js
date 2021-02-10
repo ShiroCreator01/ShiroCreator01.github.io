@@ -12,6 +12,38 @@ HINSTANCE hInst = NULL;
 LPVOID lpParam = NULL;
 HWND button1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
 `;
+var c_control_listbox = `DWORD dwExStyle = 0;
+PCTSTR clazz = _T("ListBox");
+PCTSTR text = _T("");
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | WS_VSCROLL;
+int left = 0;
+int top = 0;
+int width = 100;
+int height = 50;
+HWND parent = hWnd;
+HMENU id = NULL;
+HINSTANCE hInst = NULL;
+LPVOID lpParam = NULL;
+HWND listbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
+SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 1"))->c_str());
+SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 2"))->c_str());
+SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 3"))->c_str());
+SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 4"))->c_str());
+`;
+var c_control_passwordbox = `DWORD dwExStyle = 0;
+PCTSTR clazz = _T("Edit");
+PCTSTR text = _T("PasswordHere");
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_PASSWORD;
+int left = 0;
+int top = 0;
+int width = 100;
+int height = 32;
+HWND parent = hWnd;
+HMENU id = NULL;
+HINSTANCE hInst = NULL;
+LPVOID lpParam = NULL;
+HWND passbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
+`;
 var c_control_textbox = `DWORD dwExStyle = 0;
 PCTSTR clazz = _T("Edit");
 PCTSTR text = _T("Text Here");
@@ -26,19 +58,11 @@ HINSTANCE hInst = NULL;
 LPVOID lpParam = NULL;
 HWND txtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
 `;
-var c_control_passwordbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Edit");
-PCTSTR text = _T("PasswordHere");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_PASSWORD;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND button1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
+var t_1 = `#include <Windows.h>
+#include <tchar.h>
+#include <iostream>
+
+using namespace std;
 `;
 
 function CElement(_element, _content, _div){
@@ -67,14 +91,20 @@ function ChangeTitle(id,title){
 function CodeBox(_id, _div){
     ClearDiv(_div);
     switch(_id){
+        case `Template1`:
+            CPre(t_1,_div);
+            break;
         case 'Button':
             CPre(c_control_button,_div);
             break;
-        case 'TextBox':
-            CPre(c_control_textbox,_div);
+        case `ListBox`:
+            CPre(c_control_listbox,_div);
             break;
         case 'PasswordBox':
             CPre(c_control_passwordbox,_div);
+            break;            
+        case 'TextBox':
+            CPre(c_control_textbox,_div);
             break;
         default:
             break;
