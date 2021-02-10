@@ -90,7 +90,7 @@ HWND parent = hWnd;
 HMENU id = NULL;
 HINSTANCE hInst = NULL;
 LPVOID lpParam = NULL;
-HWND multilntxtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);    }
+HWND multilntxtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
 `;
 var c_control_numberbox = `DWORD dwExStyle = 0;
 PCTSTR clazz = _T("Edit");
