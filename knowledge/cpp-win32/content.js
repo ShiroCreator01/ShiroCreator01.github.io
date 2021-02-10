@@ -36,7 +36,7 @@ function ChangeTitle(id,title){
     CElement('h3',title,id);
 }
 
-function code_control(_id, _div){
+function CodeBox(_id, _div){
     ClearDiv(_div);
     switch(_id){
         case 'Button':
