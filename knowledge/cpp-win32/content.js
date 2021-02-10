@@ -78,6 +78,34 @@ SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 2"))->c_str())
 SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 3"))->c_str());
 SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 4"))->c_str());
 `;
+var c_control_multilinetextbox = `DWORD dwExStyle = 0;
+PCTSTR clazz = _T("Edit");
+PCTSTR text = _T("this is multiline textbox");
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_MULTILINE | WS_VSCROLL;
+int left = 0;
+int top = 0;
+int width = 100;
+int height = 32;
+HWND parent = hWnd;
+HMENU id = NULL;
+HINSTANCE hInst = NULL;
+LPVOID lpParam = NULL;
+HWND multilntxtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);    }
+`;
+var c_control_numberbox = `DWORD dwExStyle = 0;
+PCTSTR clazz = _T("Edit");
+PCTSTR text = _T("123456");
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_NUMBER;
+int left = 0;
+int top = 0;
+int width = 100;
+int height = 32;
+HWND parent = hWnd;
+HMENU id = NULL;
+HINSTANCE hInst = NULL;
+LPVOID lpParam = NULL;
+HWND numbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
+`;
 var c_control_passwordbox = `DWORD dwExStyle = 0;
 PCTSTR clazz = _T("Edit");
 PCTSTR text = _T("PasswordHere");
@@ -170,6 +198,12 @@ function CodeBox(_id, _div){
             break;
         case 'ListBox':
             CPre(c_control_listbox,_div);
+            break;
+        case 'MultilineTextBox':
+            CPre(c_control_multilinetextbox,_div);
+            break;
+        case 'NumberBox':
+            CPre(c_control_numberbox,_div);
             break;
         case 'PasswordBox':
             CPre(c_control_passwordbox,_div);
