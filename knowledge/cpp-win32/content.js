@@ -10,7 +10,7 @@ HWND parent = hWnd;
 HMENU id = NULL;
 HINSTANCE hInst = NULL;
 LPVOID lpParam = NULL;
-HWND button1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle,left, top, width, height, parent, id, hInst, lpParam);
+HWND button1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
 `;
 
 function CElement(_element, _content, _div){
