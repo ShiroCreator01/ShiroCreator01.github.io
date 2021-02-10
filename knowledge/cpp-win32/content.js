@@ -26,6 +26,20 @@ HINSTANCE hInst = NULL;
 LPVOID lpParam = NULL;
 HWND txtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
 `;
+var c_control_passwordbox = `DWORD dwExStyle = 0;
+PCTSTR clazz = _T("Edit");
+PCTSTR text = _T("PasswordHere");
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_PASSWORD;
+int left = 0;
+int top = 0;
+int width = 100;
+int height = 32;
+HWND parent = hWnd;
+HMENU id = NULL;
+HINSTANCE hInst = NULL;
+LPVOID lpParam = NULL;
+HWND button1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
+`;
 
 function CElement(_element, _content, _div){
     var x = document.createElement(_element);
@@ -58,6 +72,9 @@ function CodeBox(_id, _div){
             break;
         case 'TextBox':
             CPre(c_control_textbox,_div);
+            break;
+        case 'PasswordBox':
+            CPre(c_control_passwordbox,_div);
             break;
         default:
             break;
