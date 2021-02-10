@@ -2,32 +2,72 @@
 <html>
   <head>
     <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 <body>
 
   <div id="main">
-    <button id="toggleNavbar" class="openbtn" onclick="toggleNav()" value="close">☰ C++ Win32</button>  
-    <div id="c_title"><h1>C++ Win32</h1></div>
+    <table width="100%">
+      <tr>
+        <td width="5%">
+          <center>
+            <button id="toggleNavbar" class="openbtn" onclick="toggleNav()" value="close">☰</button>
+          </center>
+        </td>
+        <td width="80%">
+            <div id="c_title"><h3>C++ Win32</h3></div>
+        </td>
+        <td width="15%">
+          <h3 align="right">C++ Win32</h3>
+        </td>
+      </tr>
+    </table> 
     <hr>
+      <div id="code1">
+      </div>
   </div>
 
   <div id="mySidebar" class="sidebar">
     <div class="part">Control</div>
-    <a href="javascript:Change_Title('c_title','Control - Button')">・Button</a>
-    <a href="javascript:Change_Title('c_title','Control - CheckBox')">・CheckBox</a>
-    <a href="javascript:Change_Title('c_title','Control - ComboBox')">・ComboBox</a>
-    <a href="javascript:Change_Title('c_title','Control - Label')">・Label</a>
-    <a href="javascript:Change_Title('c_title','Control - ListBox')">・ListBox</a>
-    <a href="javascript:Change_Title('c_title','Control - PasswordBox')">・PasswordBox</a>
-    <a href="javascript:Change_Title('c_title','Control - RadioButton')">・RadioButton</a>
-    <a href="javascript:Change_Title('c_title','Control - TextBox')">・TextBox</a>
+        <a href="javascript:ChangeTitle('c_title','Control - Button');
+                javascript:code_control('Button','code1');">
+          ・Button</a>
+        <a href="javascript:ChangeTitle('c_title','Control - CheckBox');
+                javascript:code_control('CheckBox','code1');">
+          ・CheckBox</a>
+        <a href="javascript:ChangeTitle('c_title','Control - ComboBox');
+                javascript:code_control('ComboBox','code1');">
+          ・ComboBox</a>
+        <a href="javascript:ChangeTitle('c_title','Control - Label');
+                javascript:code_control('Label','code1');">
+          ・Label</a>
+        <a href="javascript:ChangeTitle('c_title','Control - ListBox');
+                javascript:code_control('ListBox','code1');">
+          ・ListBox</a>
+        <a href="javascript:ChangeTitle('c_title','Control - PasswordBox');
+                javascript:code_control('PasswordBox','code1');">
+          ・PasswordBox</a>
+        <a href="javascript:ChangeTitle('c_title','Control - RadioButton');
+                javascript:code_control('RadioButton','code1');">
+          ・RadioButton</a>
+        <a href="javascript:ChangeTitle('c_title','Control - TextBox');
+                javascript:code_control('TextBox','code1');">
+          ・TextBox</a>
     <div class="part">Text</div>
-    <a href="javascript:Change_Title('c_title','Text - Align')">・Align</a>
-    <a href="javascript:Change_Title('c_title','Text - Font')">・Font</a>
-    <a href="javascript:Change_Title('c_title','Text - Size')">・Size</a>
+        <a href="javascript:ChangeTitle('c_title','Text - Align');
+                javascript:code_control('Align','code1');">
+          ・Align</a>
+        <a href="javascript:ChangeTitle('c_title','Text - Font');
+                javascript:code_control('Font','code1');">
+          ・Font</a>
+        <a href="javascript:ChangeTitle('c_title','Text - Size');
+                javascript:code_control('Size','code1');">
+          ・Size</a>
     <div class="part">Window</div>
-    <a href="javascript:Change_Title('c_title','Window - Create')">・Create</a>
+        <a href="javascript:ChangeTitle('c_title','Window - Create');
+                javascript:code_control('Create','code1');">
+          ・Create</a> 
   </div>
 
   <script src="content.js"></script>
