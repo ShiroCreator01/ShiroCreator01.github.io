@@ -46,6 +46,20 @@ SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 4"))->c_str()
 SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 5"))->c_str());
 SendMessage(combobox1, CB_SETCURSEL, 0, 0);
 `;
+var c_control_label = `DWORD dwExStyle = 0;
+PCTSTR clazz = _T("Static");
+PCTSTR text = _T("Label 1");
+DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY;
+int left = 0;
+int top = 0;
+int width = 100;
+int height = 32;
+HWND parent = hWnd;
+HMENU id = NULL;
+HINSTANCE hInst = NULL;
+LPVOID lpParam = NULL;
+HWND lbl1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
+`;
 var c_control_listbox = `DWORD dwExStyle = 0;
 PCTSTR clazz = _T("ListBox");
 PCTSTR text = _T("");
@@ -136,6 +150,9 @@ function CodeBox(_id, _div){
             break;
         case 'ComboBox':
             CPre(c_control_combobox,_div);
+            break;
+        case 'Label':
+            CPre(c_control_label,_div);
             break;
         case 'ListBox':
             CPre(c_control_listbox,_div);
