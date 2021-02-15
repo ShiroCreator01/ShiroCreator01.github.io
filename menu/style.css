@@ -56,8 +56,8 @@ a {
     padding: 16px;
     text-align: center;
     margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.25);
-  }
+    background: rgb(255,255,255);
+    background: linear-gradient(222deg, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0.5) 100%);  }
 .p_button {
     background-color: white;
     border-radius: 15px;
