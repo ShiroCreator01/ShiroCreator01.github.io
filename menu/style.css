@@ -1,0 +1,68 @@
+body {
+    background-image:url("https://img.wallpapersafari.com/tablet/2560/1700/43/24/lwTb0a.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height:100%;
+    width:100%;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+.menu {
+    position: absolute;
+    display: inline-block;
+    top:50%;
+    left:50%;
+    width:80%;
+    height:80%;
+    transform: translateX(-50%) translateY(-50%);
+}
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 156px;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    margin: 0 -5px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 156px;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+.p_button {
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+    width: 128px;
+    height: 156px;
+    color: black;
+}

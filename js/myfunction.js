@@ -1,8 +1,8 @@
 function Append(id,content){
-    document.getElementById(id).innerHTML += content;
+    FindID(id).innerHTML += content;
 }
 function AppendC(id,content){
-    document.getElementById(id).appendChild(content);
+    FindID(id).appendChild(content);
 }
 function Button(parent,id,text,click){
     var btn = document.createElement('Button');
@@ -12,7 +12,7 @@ function Button(parent,id,text,click){
     AppendC(parent,btn);
 }
 function Clear(id){
-    document.getElementById(id).innerHTML = "";
+    FindID(id).innerHTML = "";
 }
 function ConvertA(from,to,value){
     switch(from){
@@ -42,8 +42,11 @@ function ConvertA(from,to,value){
             } break;
     }
 }
+function FindID(id){
+    return document.getElementById(id);
+}
 function GetValue(id){
-    return document.getElementById(id).value;
+    return FindID(id).value;
 }
 function H(parent,id,text,size){
     switch(size){
@@ -95,7 +98,7 @@ function NewLine(id){
     Append(id,"<br>");
 }
 function SetValue(id,content){
-    document.getElementById(id).setAttribute('value',content);
+    FindID(id).setAttribute('value',content);
 }
 function Textbox(parent,id,text,readonly){
     var a = document.createElement('input');
