@@ -24,7 +24,7 @@ a {
 /* Float four columns side by side */
 .column {
     float: left;
-    width: 156px;
+    width: 128px;
     padding: 0 10px;
   }
   
@@ -43,7 +43,7 @@ a {
   /* Responsive columns */
   @media screen and (max-width: 600px) {
     .column {
-      width: 156px;
+      width: 128px;
       display: block;
       margin-bottom: 20px;
     }
