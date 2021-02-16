@@ -2,7 +2,7 @@ function t_1(a,b,c,d){
     return `#include <iostream>
 #include <windows.h>
 using namespace std;
-class TextBox {
+class `+ a + ` {
     public:
         ` + a +
         `(HWND parent){
