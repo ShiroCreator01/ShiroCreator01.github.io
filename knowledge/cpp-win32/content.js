@@ -28,7 +28,15 @@ class TextBox {
         HMENU id = NULL;
         HINSTANCE hInst = NULL;
         LPVOID lpParam = NULL;
+        RECT cClientRect{0};
 };
+`;
+}
+function t_setlocation(a){
+    return a + `.left = 100;
+` + a + `.top = 100;
+SetWindowPos(` + a + `.control, NULL, ` + a + `.left, ` + a + `.top, 0, 0, SWP_NOSIZE);
+GetClientRect(` + a + `.control, &` + a + `.cClientRect);
 `;
 }
 function t_settext(a,b){
@@ -50,6 +58,8 @@ function Show_Control_Button(){
     Pre('box','',t_1('Button','Button','','Click'),'code');
     Pre('box','',`Button ` + a + `(hWnd);`,'code');
     Line('box'); 
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
     H('box','','Set Text',3,'');
     Pre('box','',t_settext('New Text',a),'code');   
 }
@@ -60,6 +70,8 @@ function Show_Control_CheckBox(){
     Pre('box','',t_1('CheckBox','Button',' | BS_AUTOCHECKBOX','Check 1'),'code');
     Pre('box','',`CheckBox ` + a + `(hWnd);`,'code');
     Line('box');
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
     H('box','','Set Text',3,'');
     Pre('box','',t_settext('New Text',a),'code');   
 }
@@ -70,6 +82,8 @@ function Show_Control_ComboBox(){
     Pre('box','',t_1('ComboBox','ComboBox',' | CBS_DROPDOWN | WS_VSCROLL',''),'code');
     Pre('box','',`ComboBox ` + a + `(hWnd);`,'code');
     Line('box'); 
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
 }
 
 function Show_Control_Label(){
@@ -78,6 +92,8 @@ function Show_Control_Label(){
     Pre('box','',t_1('Label','Static','','Label 1'),'code');
     Pre('box','',`Label ` + a + `(hWnd);`,'code');
     Line('box');
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
     H('box','','Set Text',3,'');
     Pre('box','',t_settext('New Text',a),'code');   
 }
@@ -88,6 +104,8 @@ function Show_Control_ListBox(){
     Pre('box','',t_1('ListBox','ListBox',' | WS_VSCROLL',''),'code');
     Pre('box','',`ListBox ` + a + `(hWnd);`,'code');
     Line('box'); 
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
 }
 
 function Show_Control_RadioButton(){
@@ -96,6 +114,8 @@ function Show_Control_RadioButton(){
     Pre('box','',t_1('RadioButton','Button',' | BS_AUTORADIOBUTTON','Radio 1'),'code');
     Pre('box','',`RadioButton ` + a + `(hWnd);`,'code');
     Line('box');
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
     H('box','','Set Text',3,'');
     Pre('box','',t_settext('New Text',a),'code');   
 }
@@ -106,6 +126,8 @@ function Show_Control_TextBox(){
     Pre('box','',t_1('TextBox','Edit','','Text Here'),'code');
     Pre('box','',`TextBox ` + a  + `(hWnd);`,'code');
     Line('box');
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');
     H('box','','Set Text',3,'');
     Pre('box','',t_settext('New Text',a),'code');   
 }
