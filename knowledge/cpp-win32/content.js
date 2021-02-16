@@ -1,6 +1,7 @@
 function t_1(a,b,c,d){
     return `#include <iostream>
 #include <windows.h>
+#include <vector>
 using namespace std;
 class ` + a + ` {
     public:
@@ -40,6 +41,14 @@ for (int i = 0; i < ` + a + `.list.size(); i++){
     SendMessage(` + a + `.control, CB_ADDSTRING, 0, (LPARAM) ` + a + `.list[i].c_str());
 }
 SendMessage(` + a + `.control, CB_SETCURSEL, 0, 0);
+`;
+}
+function t_listbox_addlist(a){
+    return a + `.list.push_back("List 1");
+` + a + `.list.push_back("List 2");
+for (int i = 0; i < ` + a + `.list.size(); i++){
+    SendMessage(` + a + `.control, LB_ADDSTRING, 0, (LPARAM) ` + a + `.list[i].c_str());
+}
 `;
 }
 function t_setlocation(a){
@@ -116,6 +125,8 @@ function Show_Control_ListBox(){
     Pre('box','',t_1('ListBox','ListBox',' | WS_VSCROLL',''),'code');
     Pre('box','',`ListBox ` + a + `(hWnd);`,'code');
     Line('box'); 
+    H('box','','Add List',3,'');
+    Pre('box','',t_listbox_addlist(a),'code');
     H('box','','Set Location',3,'');
     Pre('box','',t_setlocation(a),'code');
 }
