@@ -1,10 +1,10 @@
 function ShowInput(_from,_to){
     Clear(`c_title`);
     Clear(`box`);
-    H('c_title','',_from + ' - To ' + _to,3);
-    H('box','',_from,3);
+    H('c_title','',_from + ' - To ' + _to,3,'');
+    H('box','',_from,3,'');
     Textbox('box','num1','',false);
-    H('box','',_to,3);
+    H('box','',_to,3,'');
     Textbox('box','num2','',true);
     NewLine('box');
     NewLine('box');

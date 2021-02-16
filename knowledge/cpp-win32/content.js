@@ -1,273 +1,111 @@
-var c_control_button = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Button");
-PCTSTR text = _T("Click");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND button1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_checkbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Button");
-PCTSTR text = _T("Check 1");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | BS_AUTOCHECKBOX;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND chkbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_combobox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("ComboBox");
-PCTSTR text = _T("");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | CBS_DROPDOWN | WS_VSCROLL;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 100;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND combobox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 1"))->c_str());
-SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 2"))->c_str());
-SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 3"))->c_str());
-SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 4"))->c_str());
-SendMessage(combobox1, CB_ADDSTRING, 0, (LPARAM) (new string("item 5"))->c_str());
-SendMessage(combobox1, CB_SETCURSEL, 0, 0);
-`;
-var c_control_label = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Static");
-PCTSTR text = _T("Label 1");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND lbl1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_listbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("ListBox");
-PCTSTR text = _T("");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | WS_VSCROLL;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 50;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND listbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 1"))->c_str());
-SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 2"))->c_str());
-SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 3"))->c_str());
-SendMessage(listbox1, LB_ADDSTRING, 0, (LPARAM) (new string("item 4"))->c_str());
-`;
-var c_control_multilinetextbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Edit");
-PCTSTR text = _T("this is multiline textbox");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_MULTILINE | WS_VSCROLL;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND multilntxtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_numberbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Edit");
-PCTSTR text = _T("123456");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_NUMBER;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND numbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_passwordbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Edit");
-PCTSTR text = _T("PasswordHere");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY | ES_PASSWORD;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND passbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_radiobutton = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Button");
-PCTSTR text = _T("Radio 1");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND radiobutton1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var c_control_textbox = `DWORD dwExStyle = 0;
-PCTSTR clazz = _T("Edit");
-PCTSTR text = _T("Text Here");
-DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY;
-int left = 0;
-int top = 0;
-int width = 100;
-int height = 32;
-HWND parent = hWnd;
-HMENU id = NULL;
-HINSTANCE hInst = NULL;
-LPVOID lpParam = NULL;
-HWND txtbox1 = CreateWindowEx(dwExStyle, clazz, text, dwStyle, left, top, width, height, parent, id, hInst, lpParam);
-`;
-var clt_setText = `Set Text`;
-var cl_setText = `SetWindowText(txtbox1, (new string("New Text"))->c_str());`;
-var t_1 = `#include <Windows.h>
-#include <tchar.h>
-#include <iostream>
-
+function t_1(a,b,c,d){
+    return `#include <iostream>
+#include <windows.h>
 using namespace std;
+class TextBox {
+    public:
+        ` + a +
+        `(HWND parent){
+            this->parent = parent;
+            hInst = (HINSTANCE) GetWindowLongPtr(this->parent, GWLP_HINSTANCE);
+            SecureZeroMemory(&control, sizeof(HWND));
+            control = CreateWindowEx(dwExStyle, clazz, text, dwStyle,left, top, width, height, parent, id, hInst, lpParam);
+        }
+        void refresh(){
+            DestroyWindow(control);
+            control = CreateWindowEx(dwExStyle, clazz, text, dwStyle,left, top, width, height, parent, id, hInst, lpParam);
+        }
+        HWND control = NULL;
+        DWORD dwExStyle = 0;
+        char* clazz = "` + b + `";
+        char* text = "` + d + `";
+        DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY` + c +`;
+        int left = 0;
+        int top = 0;
+        int width = 100;
+        int height = 100;
+        HWND parent = NULL;
+        HMENU id = NULL;
+        HINSTANCE hInst = NULL;
+        LPVOID lpParam = NULL;
+};
 `;
-
-function CElement(_element, _content, _div){
-    var x = document.createElement(_element);
-    x.innerHTML = _content;
-    document.getElementById(_div).appendChild(x);
+}
+function t_settext(a,b){
+    return `char* text = "` + a +`";
+` + b +`.text = text;
+SetWindowText(`+ b + `.control,text);
+`;
 }
 
-function CH3(_content, _div){
-    var x = document.createElement("h3");
-    var t = document.createTextNode(_content);
-    x.appendChild(t);
-    document.getElementById(_div).appendChild(x);
-}
-
-function CPre(_content, _div){
-    var x = document.createElement("pre");
-    x.setAttribute("class", "code");
-    var t = document.createTextNode(_content);
-    x.appendChild(t);
-    document.getElementById(_div).appendChild(x);
-}
-
-function ClearDiv(id){
-    document.getElementById(id).innerHTML = "";
-}   
-
-function ChangeTitle(id,title){
-    ClearDiv(id);
-    CElement('h3',title,id);
-}
-
-function CodeBox(_id, _div){
-    ClearDiv(_div);
-    switch(_id){
-        case 'Template1':
-            CPre(t_1,_div);
-            break;
-        case 'Button':
-            CPre(c_control_button,_div);
-            break;
-        case 'CheckBox':
-            CPre(c_control_checkbox,_div);
-            break;
-        case 'ComboBox':
-            CPre(c_control_combobox,_div);
-            break;
-        case 'Label':
-            CPre(c_control_label,_div);
-            break;
-        case 'ListBox':
-            CPre(c_control_listbox,_div);
-            break;
-        case 'RadioButton':
-            CPre(c_control_radiobutton,_div);
-            break;       
-        case 'TextBox':
-            CPre(c_control_textbox,_div);
-            break;
-        default:
-            break;
-    }
+function ChangeTitle(title){
+    Clear(`c_title`);
+    Clear(`box`);
+    H('c_title','','Control - ' + title,3,'');    
 }
 
 function Show_Control_Button(){
-    ChangeTitle('c_title','Control - Button');
-    CodeBox('Template1','_box1');
-    CodeBox('Button','_box2');
-    ClearDiv('_1box');
-    CH3(clt_setText,'_1box');
-    CPre(cl_setText,'_1box');
+    var a = `btn1`;
+    ChangeTitle('Button');
+    Pre('box','',t_1('Button','Button','','Click'),'code');
+    Pre('box','',`Button ` + a + `(hWnd);`,'code');
+    Line('box'); 
+    H('box','','Set Text',3,'');
+    Pre('box','',t_settext('New Text',a),'code');   
 }
+
 function Show_Control_CheckBox(){
-    ChangeTitle('c_title','Control - CheckBox');
-    CodeBox('Template1','_box1');
-    CodeBox('CheckBox','_box2');
-    ClearDiv('_1box');
-    CH3(clt_setText,'_1box');
-    CPre(cl_setText,'_1box');
+    var a = `chkbox1`;
+    ChangeTitle('CheckBox');
+    Pre('box','',t_1('CheckBox','Button',' | BS_AUTOCHECKBOX','Check 1'),'code');
+    Pre('box','',`CheckBox ` + a + `(hWnd);`,'code');
+    Line('box');
+    H('box','','Set Text',3,'');
+    Pre('box','',t_settext('New Text',a),'code');   
 }
+
 function Show_Control_ComboBox(){
-    ChangeTitle('c_title','Control - ComboBox');
-    CodeBox('Template1','_box1');
-    CodeBox('ComboBox','_box2');
-    ClearDiv('_1box');
+    var a = `combobox1`;
+    ChangeTitle('ComboBox');
+    Pre('box','',t_1('ComboBox','ComboBox',' | CBS_DROPDOWN | WS_VSCROLL',''),'code');
+    Pre('box','',`ComboBox ` + a + `(hWnd);`,'code');
+    Line('box'); 
 }
+
 function Show_Control_Label(){
-    ChangeTitle('c_title','Control - Label');
-    CodeBox('Template1','_box1');
-    CodeBox('Label','_box2');
-    ClearDiv('_1box');
-    CH3(clt_setText,'_1box');
-    CPre(cl_setText,'_1box');
+    var a = `lbl1`;
+    ChangeTitle('Label');
+    Pre('box','',t_1('Label','Static','','Label 1'),'code');
+    Pre('box','',`Label ` + a + `(hWnd);`,'code');
+    Line('box');
+    H('box','','Set Text',3,'');
+    Pre('box','',t_settext('New Text',a),'code');   
 }
+
 function Show_Control_ListBox(){
-    ChangeTitle('c_title','Control - ListBox');
-    CodeBox('Template1','_box1');
-    CodeBox('ListBox','_box2');
-    ClearDiv('_1box');
+    var a = `lstbox1`;
+    ChangeTitle('ListBox');
+    Pre('box','',t_1('ListBox','ListBox',' | WS_VSCROLL',''),'code');
+    Pre('box','',`ListBox ` + a + `(hWnd);`,'code');
+    Line('box'); 
 }
+
 function Show_Control_RadioButton(){
-    ChangeTitle('c_title','Control - RadioButton');
-    CodeBox('Template1','_box1');
-    CodeBox('RadioButton','_box2');
-    ClearDiv('_1box');
-    CH3(clt_setText,'_1box');
-    CPre(cl_setText,'_1box');
+    var a = `radiobutton1`;
+    ChangeTitle('RadioButton');
+    Pre('box','',t_1('RadioButton','Button',' | BS_AUTORADIOBUTTON','Radio 1'),'code');
+    Pre('box','',`RadioButton ` + a + `(hWnd);`,'code');
+    Line('box');
+    H('box','','Set Text',3,'');
+    Pre('box','',t_settext('New Text',a),'code');   
 }
+
 function Show_Control_TextBox(){
-    ChangeTitle('c_title','Control - TextBox');
-    CodeBox('Template1','_box1');
-    CodeBox('TextBox','_box2');
-    ClearDiv('_1box');
-    CH3(clt_setText,'_1box');
-    CPre(cl_setText,'_1box');
+    var a = `txtbox1`;
+    ChangeTitle('TextBox');
+    Pre('box','',t_1('TextBox','Edit','','Text Here'),'code');
+    Pre('box','',`TextBox ` + a  + `(hWnd);`,'code');
+    Line('box');
+    H('box','','Set Text',3,'');
+    Pre('box','',t_settext('New Text',a),'code');   
 }

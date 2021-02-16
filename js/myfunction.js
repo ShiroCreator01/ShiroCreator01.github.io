@@ -48,47 +48,55 @@ function FindID(id){
 function GetValue(id){
     return FindID(id).value;
 }
-function H(parent,id,text,size){
+function H(parent,id,text,size,clazz){
+    var a;
     switch(size){
         case 1: 
-            var a = document.createElement('h1'); 
+            a = document.createElement('h1'); 
             a.setAttribute('id',id); 
+            a.setAttribute('class',clazz);
             a.textContent = text;  
             AppendC(parent,a);
             break;
         case 2: 
-            var a = document.createElement('h2'); 
+            a = document.createElement('h2'); 
             a.setAttribute('id',id); 
+            a.setAttribute('class',clazz);
             a.textContent = text;  
             AppendC(parent,a);
             break;
         case 3:
-            var a = document.createElement('h3'); 
+            a = document.createElement('h3'); 
             a.setAttribute('id',id); 
+            a.setAttribute('class',clazz);
             a.textContent = text;  
             AppendC(parent,a); 
             break;
         case 4:
-            var a = document.createElement('h4'); 
+            a = document.createElement('h4'); 
             a.setAttribute('id',id); 
+            a.setAttribute('class',clazz);
             a.textContent = text;  
             AppendC(parent,a); 
             break;
         case 5:
-            var a = document.createElement('h5'); 
+            a = document.createElement('h5'); 
             a.setAttribute('id',id); 
+            a.setAttribute('class',clazz);
             a.textContent = text;  
             AppendC(parent,a); 
             break;
         case 6:
-            var a = document.createElement('h6'); 
+            a = document.createElement('h6'); 
             a.setAttribute('id',id); 
+            a.setAttribute('class',clazz);
             a.textContent = text;  
             AppendC(parent,a); 
             break;
         case 7: 
-            var a = document.createElement('h7'); 
-            a.setAttribute('id',id); 
+            a = document.createElement('h7'); 
+            a.setAttribute('id',id);
+            a.setAttribute('class',clazz); 
             a.textContent = text;  
             AppendC(parent,a);
             break;
@@ -96,6 +104,17 @@ function H(parent,id,text,size){
 }
 function NewLine(id){
     Append(id,"<br>");
+}
+function Line(id){
+    Append(id,"<hr>");
+}
+function Pre(parent,id,text,clazz){
+    var a = document.createElement("pre");
+    a.setAttribute('id',id);
+    a.setAttribute("class",clazz);
+    var b = document.createTextNode(text);
+    a.appendChild(b);
+    document.getElementById(parent).appendChild(a);
 }
 function SetValue(id,content){
     FindID(id).setAttribute('value',content);
