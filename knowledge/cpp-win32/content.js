@@ -2,7 +2,7 @@ function t_1(a,b,c,d){
     return `#include <iostream>
 #include <windows.h>
 using namespace std;
-class `+ a + ` {
+class ` + a + ` {
     public:
         ` + a +
         `(HWND parent){
@@ -29,7 +29,17 @@ class `+ a + ` {
         HINSTANCE hInst = NULL;
         LPVOID lpParam = NULL;
         RECT cClientRect{0};
+        vector<string> list;
 };
+`;
+}
+function t_combobox_addlist(a){
+    return a + `.list.push_back("List 1");
+` + a + `.list.push_back("List 2");
+for (int i = 0; i < ` + a + `.list.size(); i++){
+    SendMessage(` + a + `.control, CB_ADDSTRING, 0, (LPARAM) ` + a + `.list[i].c_str());
+}
+SendMessage(` + a + `.control, CB_SETCURSEL, 0, 0);
 `;
 }
 function t_setlocation(a){
@@ -82,6 +92,8 @@ function Show_Control_ComboBox(){
     Pre('box','',t_1('ComboBox','ComboBox',' | CBS_DROPDOWN | WS_VSCROLL',''),'code');
     Pre('box','',`ComboBox ` + a + `(hWnd);`,'code');
     Line('box'); 
+    H('box','','Add List',3,'');
+    Pre('box','',t_combobox_addlist(a),'code');
     H('box','','Set Location',3,'');
     Pre('box','',t_setlocation(a),'code');
 }
