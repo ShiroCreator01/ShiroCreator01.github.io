@@ -64,6 +64,14 @@ function t_settext(a,b){
 SetWindowText(`+ b + `.control,text);
 `;
 }
+function a_setlocation(a){
+    H('box','','Set Location',3,'');
+    Pre('box','',t_setlocation(a),'code');   
+}
+function a_settext(a){
+    H('box','','Set Text',3,'');
+    Pre('box','',t_settext('New Text',a),'code'); 
+}
 
 function ChangeTitle(title){
     Clear(`c_title`);
@@ -77,10 +85,8 @@ function Show_Control_Button(){
     Pre('box','',t_1('Button','Button','','Click'),'code');
     Pre('box','',`Button ` + a + `(hWnd);`,'code');
     Line('box'); 
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
-    H('box','','Set Text',3,'');
-    Pre('box','',t_settext('New Text',a),'code');   
+    a_setlocation(a);
+    a_settext(a);
 }
 
 function Show_Control_CheckBox(){
@@ -89,10 +95,8 @@ function Show_Control_CheckBox(){
     Pre('box','',t_1('CheckBox','Button',' | BS_AUTOCHECKBOX','Check 1'),'code');
     Pre('box','',`CheckBox ` + a + `(hWnd);`,'code');
     Line('box');
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
-    H('box','','Set Text',3,'');
-    Pre('box','',t_settext('New Text',a),'code');   
+    a_setlocation(a);
+    a_settext(a);   
 }
 
 function Show_Control_ComboBox(){
@@ -103,8 +107,7 @@ function Show_Control_ComboBox(){
     Line('box'); 
     H('box','','Add List',3,'');
     Pre('box','',t_combobox_addlist(a),'code');
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
+    a_setlocation(a);
 }
 
 function Show_Control_Label(){
@@ -113,10 +116,8 @@ function Show_Control_Label(){
     Pre('box','',t_1('Label','Static','','Label 1'),'code');
     Pre('box','',`Label ` + a + `(hWnd);`,'code');
     Line('box');
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
-    H('box','','Set Text',3,'');
-    Pre('box','',t_settext('New Text',a),'code');   
+    a_setlocation(a);
+    a_settext(a);   
 }
 
 function Show_Control_ListBox(){
@@ -127,8 +128,7 @@ function Show_Control_ListBox(){
     Line('box'); 
     H('box','','Add List',3,'');
     Pre('box','',t_listbox_addlist(a),'code');
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
+    a_setlocation(a);
 }
 
 function Show_Control_RadioButton(){
@@ -137,10 +137,8 @@ function Show_Control_RadioButton(){
     Pre('box','',t_1('RadioButton','Button',' | BS_AUTORADIOBUTTON','Radio 1'),'code');
     Pre('box','',`RadioButton ` + a + `(hWnd);`,'code');
     Line('box');
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
-    H('box','','Set Text',3,'');
-    Pre('box','',t_settext('New Text',a),'code');   
+    a_setlocation(a);
+    a_settext(a);   
 }
 
 function Show_Control_TextBox(){
@@ -149,8 +147,6 @@ function Show_Control_TextBox(){
     Pre('box','',t_1('TextBox','Edit','','Text Here'),'code');
     Pre('box','',`TextBox ` + a  + `(hWnd);`,'code');
     Line('box');
-    H('box','','Set Location',3,'');
-    Pre('box','',t_setlocation(a),'code');
-    H('box','','Set Text',3,'');
-    Pre('box','',t_settext('New Text',a),'code');   
+    a_setlocation(a);
+    a_settext(a);   
 }
