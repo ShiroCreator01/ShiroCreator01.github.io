@@ -11,10 +11,33 @@ class ` + a + ` {
             hInst = (HINSTANCE) GetWindowLongPtr(this->parent, GWLP_HINSTANCE);
             SecureZeroMemory(&control, sizeof(HWND));
             control = CreateWindowEx(dwExStyle, clazz, text, dwStyle,left, top, width, height, parent, id, hInst, lpParam);
+            strcpy( cLogFont.lfFaceName, "Arial" );
+            cLogFont.lfHeight = -MulDiv(11, GetDeviceCaps(GetDC(0), LOGPIXELSY), 72);
+            cLogFont.lfWidth = 0;
+            cLogFont.lfWeight = FW_NORMAL;
+            cLogFont.lfItalic = false;
+            cLogFont.lfUnderline = false;
+            cLogFont.lfStrikeOut = false;
+            cLogFont.lfCharSet = ANSI_CHARSET;
+            cLogFont.lfOutPrecision = OUT_DEFAULT_PRECIS;
+            cLogFont.lfClipPrecision = CLIP_DEFAULT_PRECIS;
+            cLogFont.lfQuality = DEFAULT_QUALITY;
+            cLogFont.lfPitchAndFamily = DEFAULT_PITCH;
+            updateFont();
+        }
+        void redraw(){
+            InvalidateRect(control, NULL, true);
         }
         void refresh(){
             DestroyWindow(control);
             control = CreateWindowEx(dwExStyle, clazz, text, dwStyle,left, top, width, height, parent, id, hInst, lpParam);
+            updateFont();
+        }
+        void updateFont() {
+            if (cFont != nullptr) DeleteObject(cFont);
+            cFont = CreateFontIndirect(&cLogFont);
+            SendMessage(control, WM_SETFONT, (WPARAM)cFont, true);
+            redraw();
         }
         HWND control = NULL;
         DWORD dwExStyle = 0;
@@ -31,6 +54,8 @@ class ` + a + ` {
         LPVOID lpParam = NULL;
         RECT cClientRect{0};
         vector<string> list;
+        LOGFONT cLogFont;
+        HFONT cFont = nullptr;
 };
 `;
 }
