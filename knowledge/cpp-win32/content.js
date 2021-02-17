@@ -5,10 +5,28 @@ function t_1(a,b,c,d){
 using namespace std;
 class ` + a + ` {
     public:
-        ` + a +
-        `(HWND parent){
+        HWND control = NULL;
+        DWORD dwExStyle = 0;
+        char* clazz = "` + b + `";
+        char* text = "` + d + `";
+        DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY` + c +`;
+        int left = 0;
+        int top = 0;
+        int width = 100;
+        int height = 100;
+        HWND parent = NULL;
+        HMENU id = NULL;
+        HINSTANCE hInst = NULL;
+        LPVOID lpParam = NULL;
+        RECT cClientRect{0};
+        vector<string> list;
+        LOGFONT cLogFont;
+        HFONT cFont = nullptr;
+        ` + a + `(HWND parent){
             this->parent = parent;
             hInst = (HINSTANCE) GetWindowLongPtr(this->parent, GWLP_HINSTANCE);
+        }
+        void create(){
             SecureZeroMemory(&control, sizeof(HWND));
             control = CreateWindowEx(dwExStyle, clazz, text, dwStyle,left, top, width, height, parent, id, hInst, lpParam);
             strcpy( cLogFont.lfFaceName, "Arial" );
@@ -36,26 +54,9 @@ class ` + a + ` {
         void updateFont() {
             if (cFont != nullptr) DeleteObject(cFont);
             cFont = CreateFontIndirect(&cLogFont);
-            SendMessage(control, WM_SETFONT, (WPARAM)cFont, true);
+            SendMessage(control, WM_SETFONT, (WPARAM) cFont, true);
             redraw();
         }
-        HWND control = NULL;
-        DWORD dwExStyle = 0;
-        char* clazz = "` + b + `";
-        char* text = "` + d + `";
-        DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY` + c +`;
-        int left = 0;
-        int top = 0;
-        int width = 100;
-        int height = 100;
-        HWND parent = NULL;
-        HMENU id = NULL;
-        HINSTANCE hInst = NULL;
-        LPVOID lpParam = NULL;
-        RECT cClientRect{0};
-        vector<string> list;
-        LOGFONT cLogFont;
-        HFONT cFont = nullptr;
 };
 `;
 }
@@ -167,7 +168,9 @@ function Show_Control_Button(){
     var a = `btn1`;
     ChangeTitle('Button');
     Pre('box','',t_1('Button','Button','','Click'),'code');
-    Pre('box','',`Button ` + a + `(hWnd);`,'code');
+    Pre('box','',
+`Button ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box');
     a_setheight(a);
     a_setleft(a);
@@ -182,7 +185,9 @@ function Show_Control_CheckBox(){
     var a = `chkbox1`;
     ChangeTitle('CheckBox');
     Pre('box','',t_1('CheckBox','Button',' | BS_AUTOCHECKBOX','Check 1'),'code');
-    Pre('box','',`CheckBox ` + a + `(hWnd);`,'code');
+    Pre('box','',
+`CheckBox ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box');
     a_setheight(a);
     a_setleft(a);
@@ -197,7 +202,9 @@ function Show_Control_ComboBox(){
     var a = `combobox1`;
     ChangeTitle('ComboBox');
     Pre('box','',t_1('ComboBox','ComboBox',' | CBS_DROPDOWN | WS_VSCROLL',''),'code');
-    Pre('box','',`ComboBox ` + a + `(hWnd);`,'code');
+    Pre('box','',
+`ComboBox ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box'); 
     a_combobox_addlist(a);
     a_setheight(a);
@@ -212,7 +219,9 @@ function Show_Control_Label(){
     var a = `lbl1`;
     ChangeTitle('Label');
     Pre('box','',t_1('Label','Static','','Label 1'),'code');
-    Pre('box','',`Label ` + a + `(hWnd);`,'code');
+    Pre('box','',
+`Label ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box');
     a_setheight(a);
     a_setleft(a);
@@ -227,7 +236,9 @@ function Show_Control_ListBox(){
     var a = `lstbox1`;
     ChangeTitle('ListBox');
     Pre('box','',t_1('ListBox','ListBox',' | WS_VSCROLL',''),'code');
-    Pre('box','',`ListBox ` + a + `(hWnd);`,'code');
+    Pre('box','',
+`ListBox ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box'); 
     a_listbox_addlist(a);
     a_setheight(a);
@@ -242,7 +253,9 @@ function Show_Control_RadioButton(){
     var a = `radiobutton1`;
     ChangeTitle('RadioButton');
     Pre('box','',t_1('RadioButton','Button',' | BS_AUTORADIOBUTTON','Radio 1'),'code');
-    Pre('box','',`RadioButton ` + a + `(hWnd);`,'code');
+    Pre('box','',
+`RadioButton ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box');
     a_setheight(a);
     a_setleft(a);
@@ -257,7 +270,9 @@ function Show_Control_TextBox(){
     var a = `txtbox1`;
     ChangeTitle('TextBox');
     Pre('box','',t_1('TextBox','Edit','','Text Here'),'code');
-    Pre('box','',`TextBox ` + a  + `(hWnd);`,'code');
+    Pre('box','',
+`TextBox ` + a + `(hWnd);
+` + a + `.create();`,'code');
     Line('box');
     a_setheight(a);
     a_setleft(a);
