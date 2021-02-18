@@ -92,6 +92,16 @@ function t_setfontbold(a){
 ` + a + `.updateFont();
 `;
 }
+function t_setfontitalic(a){
+    return a + `.cLogFont.lfItalic = true;
+` + a + `.updateFont();
+`;
+}
+function t_setfontunderline(a){
+    return a + `.cLogFont.lfUnderline = true;
+` + a + `.updateFont();
+`;
+}
 function t_setheight(a){
     return a + `.height = 150;
 SetWindowPos(` + a + `.control, NULL, 0, 0, ` + a + `.width, ` + a + `.height, SWP_NOMOVE);
@@ -164,6 +174,14 @@ function a_setfontbold(a){
     H('box','','Set Font Bold',3,'');
     Pre('box','',t_setfontbold(a),'code');
 }
+function a_setfontitalic(a){
+    H('box','','Set Font Italic',3,'');
+    Pre('box','',t_setfontitalic(a),'code');
+}
+function a_setfontunderline(a){
+    H('box','','Set Font Underline',3,'');
+    Pre('box','',t_setfontunderline(a),'code');
+}
 function a_setheight(a){
     H('box','','Set Height',3,'');
     Pre('box','',t_setheight(a),'code'); 
@@ -211,6 +229,8 @@ function Show_Control_Button(){
     a_setflat(a);
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -231,6 +251,8 @@ function Show_Control_CheckBox(){
     a_setflat(a);
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -251,6 +273,8 @@ function Show_Control_ComboBox(){
     a_combobox_addlist(a);
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -269,6 +293,8 @@ function Show_Control_Label(){
     Line('box');
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -289,6 +315,8 @@ function Show_Control_ListBox(){
     a_listbox_addlist(a);
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -308,6 +336,8 @@ function Show_Control_RadioButton(){
     a_setflat(a);
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -327,6 +357,8 @@ function Show_Control_TextBox(){
     Line('box');
     a_setfont(a);
     a_setfontbold(a);
+    a_setfontitalic(a);
+    a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
