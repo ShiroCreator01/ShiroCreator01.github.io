@@ -114,9 +114,17 @@ GetClientRect(` + a + `.control, &` + a + `.cClientRect);
 `;
 }
 function t_settext(a,b){
-    return `char* text = "` + a +`";
-` + b +`.text = text;
-SetWindowText(`+ b + `.control,text);
+    return `char* text = "` + a + `";
+` + b + `.text = text;
+SetWindowText(` + b + `.control,text);
+`;
+}
+function t_settext2(a,b){
+    return `char* text = "` + a + `";
+const size_t cSize = strlen(text)+1;
+wchar_t* wc = new wchar_t[cSize];
+mbstowcs(wc,text,cSize);
+SetWindowTextW(` + b + `.control, wc);
 `;
 }
 function t_settop(a){
@@ -166,6 +174,7 @@ function a_setsize(a){
 function a_settext(a){
     H('box','','Set Text',3,'');
     Pre('box','',t_settext('New Text',a),'code'); 
+    Pre('box','',t_settext2('New Text',a),'code'); 
 }
 function a_settop(a){
     H('box','','Set Top',3,'');
