@@ -77,6 +77,12 @@ for (int i = 0; i < ` + a + `.list.size(); i++){
 }
 `;
 }
+function t_setalign(a,b){
+    return a + `.dwStyle &= ~(BS_LEFT | BS_CENTER | BS_RIGHT);
+` + a + `.dwStyle |= ` + b + `;
+SetWindowLong(` + a + `.control, GWL_STYLE, ` + a + `.dwStyle);
+`;
+}
 function t_setflat(a){
     return a + `.dwStyle |= BS_FLAT;
 SetWindowLong(` + a + `.control,GWL_STYLE,` + a + `.dwStyle);
@@ -168,6 +174,10 @@ function a_listbox_addlist(a){
     H('box','','Add List',3,'');
     Pre('box','',t_listbox_addlist(a),'code');
 }
+function a_setalign(a,b,c){
+    H('box','','Set Align ' + c,3,'');
+    Pre('box','',t_setalign(a,b),'code');
+}
 function a_setflat(a){
     H('box','','Set Flat',3,'');
     Pre('box','',t_setflat(a),'code');
@@ -236,6 +246,9 @@ function Show_Control_Button(){
 `Button ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setalign(a,'BS_CENTER','Center');
+    a_setalign(a,'BS_LEFT','Left');
+    a_setalign(a,'BS_RIGHT','Right');
     a_setflat(a);
     a_setfont(a);
     a_setfontbold(a);
