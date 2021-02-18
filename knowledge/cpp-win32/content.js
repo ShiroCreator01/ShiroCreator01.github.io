@@ -97,6 +97,12 @@ function t_setfontitalic(a){
 ` + a + `.updateFont();
 `;
 }
+function t_setfontsize(a){
+    return `int size = 8;
+` + a + `.cLogFont.lfHeight = -MulDiv(size, GetDeviceCaps(GetDC(0), LOGPIXELSY), 72);
+` + a + `.updateFont();
+`;
+}
 function t_setfontunderline(a){
     return a + `.cLogFont.lfUnderline = true;
 ` + a + `.updateFont();
@@ -178,6 +184,10 @@ function a_setfontitalic(a){
     H('box','','Set Font Italic',3,'');
     Pre('box','',t_setfontitalic(a),'code');
 }
+function a_setfontsize(a){
+    H('box','','Set Font Size',3,'');
+    Pre('box','',t_setfontsize(a),'code');
+}
 function a_setfontunderline(a){
     H('box','','Set Font Underline',3,'');
     Pre('box','',t_setfontunderline(a),'code');
@@ -230,6 +240,7 @@ function Show_Control_Button(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -252,6 +263,7 @@ function Show_Control_CheckBox(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -274,6 +286,7 @@ function Show_Control_ComboBox(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -294,6 +307,7 @@ function Show_Control_Label(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -316,6 +330,7 @@ function Show_Control_ListBox(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -337,6 +352,7 @@ function Show_Control_RadioButton(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -358,6 +374,7 @@ function Show_Control_TextBox(){
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
+    a_setfontsize(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
