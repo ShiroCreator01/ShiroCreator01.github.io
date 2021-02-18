@@ -100,13 +100,13 @@ function t_setflat(a){
 SetWindowLong(` + a + `.control,GWL_STYLE,` + a + `.dwStyle);
 `;
 }
-function t_setfont(a){
-    return `strcpy(` + a + `.cLogFont.lfFaceName,"Comic Sans MS");
+function t_setfontbold(a){
+    return a + `.cLogFont.lfWeight = FW_BOLD;
 ` + a + `.updateFont();
 `;
 }
-function t_setfontbold(a){
-    return a + `.cLogFont.lfWeight = FW_BOLD;
+function t_setfontfamily(a){
+    return `strcpy(` + a + `.cLogFont.lfFaceName,"Comic Sans MS");
 ` + a + `.updateFont();
 `;
 }
@@ -202,13 +202,13 @@ function a_setflat(a){
     H('box','','Set Flat',3,'');
     Pre('box','',t_setflat(a),'code');
 }
-function a_setfont(a){
-    H('box','','Set Font',3,'');
-    Pre('box','',t_setfont(a),'code');
-}
 function a_setfontbold(a){
     H('box','','Set Font Bold',3,'');
     Pre('box','',t_setfontbold(a),'code');
+}
+function a_setfontfamily(a){
+    H('box','','Set Font Family',3,'');
+    Pre('box','',t_setfontfamily(a),'code');
 }
 function a_setfontitalic(a){
     H('box','','Set Font Italic',3,'');
@@ -269,9 +269,9 @@ function Show_Control_Button(){
     a_setalign(a,'BS_CENTER','Center');
     a_setalign(a,'BS_LEFT','Left');
     a_setalign(a,'BS_RIGHT','Right');
-    a_setflat(a);
-    a_setfont(a);
+    a_setflat(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
@@ -296,8 +296,9 @@ function Show_Control_CheckBox(){
     a_setalign(a,'BS_LEFT','Left');
     a_setalign(a,'BS_RIGHT','Right');
     a_setflat(a);
-    a_setfont(a);
+    a_setfont(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
@@ -319,8 +320,9 @@ function Show_Control_ComboBox(){
 ` + a + `.create();`,'code');
     Line('box'); 
     a_combobox_addlist(a);
-    a_setfont(a);
+    a_setfont(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
@@ -343,8 +345,9 @@ function Show_Control_Label(){
     a_label_setalign(a,'SS_CENTER','Center');
     a_label_setalign(a,'SS_LEFT','Left');
     a_label_setalign(a,'SS_RIGHT','Right');
-    a_setfont(a);
+    a_setfont(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
@@ -366,8 +369,9 @@ function Show_Control_ListBox(){
 ` + a + `.create();`,'code');
     Line('box'); 
     a_listbox_addlist(a);
-    a_setfont(a);
+    a_setfont(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
@@ -391,8 +395,9 @@ function Show_Control_RadioButton(){
     a_setalign(a,'BS_LEFT','Left');
     a_setalign(a,'BS_RIGHT','Right');
     a_setflat(a);
-    a_setfont(a);
+    a_setfont(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
@@ -416,8 +421,9 @@ function Show_Control_TextBox(){
     a_textbox_setalign(a,'ES_CENTER','Center');
     a_textbox_setalign(a,'ES_LEFT','Left');
     a_textbox_setalign(a,'ES_RIGHT','Right');
-    a_setfont(a);
+    a_setfont(a);   
     a_setfontbold(a);
+    a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
     a_setfontunderline(a);
