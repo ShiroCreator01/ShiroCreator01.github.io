@@ -87,6 +87,11 @@ function t_setfont(a){
 ` + a + `.updateFont();
 `;
 }
+function t_setfontbold(a){
+    return a + `.cLogFont.lfWeight = FW_BOLD;
+` + a + `.updateFont();
+`;
+}
 function t_setheight(a){
     return a + `.height = 150;
 SetWindowPos(` + a + `.control, NULL, 0, 0, ` + a + `.width, ` + a + `.height, SWP_NOMOVE);
@@ -155,6 +160,10 @@ function a_setfont(a){
     H('box','','Set Font',3,'');
     Pre('box','',t_setfont(a),'code');
 }
+function a_setfontbold(a){
+    H('box','','Set Font Bold',3,'');
+    Pre('box','',t_setfontbold(a),'code');
+}
 function a_setheight(a){
     H('box','','Set Height',3,'');
     Pre('box','',t_setheight(a),'code'); 
@@ -201,6 +210,7 @@ function Show_Control_Button(){
     Line('box');
     a_setflat(a);
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -220,6 +230,7 @@ function Show_Control_CheckBox(){
     Line('box');
     a_setflat(a);
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -239,6 +250,7 @@ function Show_Control_ComboBox(){
     Line('box'); 
     a_combobox_addlist(a);
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -256,6 +268,7 @@ function Show_Control_Label(){
 ` + a + `.create();`,'code');
     Line('box');
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -275,6 +288,7 @@ function Show_Control_ListBox(){
     Line('box'); 
     a_listbox_addlist(a);
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -293,6 +307,7 @@ function Show_Control_RadioButton(){
     Line('box');
     a_setflat(a);
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -311,6 +326,7 @@ function Show_Control_TextBox(){
 ` + a + `.create();`,'code');
     Line('box');
     a_setfont(a);
+    a_setfontbold(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
