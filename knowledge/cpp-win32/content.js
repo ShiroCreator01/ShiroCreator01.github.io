@@ -77,14 +77,20 @@ for (int i = 0; i < ` + a + `.list.size(); i++){
 }
 `;
 }
-function t_setalign(a,b){
-    return a + `.dwStyle &= ~(BS_LEFT | BS_CENTER | BS_RIGHT);
+function t_label_setalign(a,b){
+    return a + `.dwStyle &= ~(SS_LEFT | SS_CENTER | SS_RIGHT);
 ` + a + `.dwStyle |= ` + b + `;
 SetWindowLong(` + a + `.control, GWL_STYLE, ` + a + `.dwStyle);
 `;
 }
-function t_label_setalign(a,b){
-    return a + `.dwStyle &= ~(SS_LEFT | SS_CENTER | SS_RIGHT;
+function t_textbox_setalign(a,b){
+    return a + `.dwStyle &= ~(ES_LEFT | ES_CENTER | ES_RIGHT);
+` + a + `.dwStyle |= ` + b + `;
+SetWindowLong(` + a + `.control, GWL_STYLE, ` + a + `.dwStyle);
+`;
+}
+function t_setalign(a,b){
+    return a + `.dwStyle &= ~(BS_LEFT | BS_CENTER | BS_RIGHT);
 ` + a + `.dwStyle |= ` + b + `;
 SetWindowLong(` + a + `.control, GWL_STYLE, ` + a + `.dwStyle);
 `;
@@ -175,6 +181,10 @@ GetClientRect(` + a + `.control, &` + a + `.cClientRect);
 function a_label_setalign(a,b,c){
     H('box','','Set Align ' + c,3,'');
     Pre('box','',t_label_setalign(a,b),'code');
+}
+function a_textbox_setalign(a,b,c){
+    H('box','','Set Align ' + c,3,'');
+    Pre('box','',t_textbox_setalign(a,b),'code');
 }
 function a_setalign(a,b,c){
     H('box','','Set Align ' + c,3,'');
@@ -403,6 +413,9 @@ function Show_Control_TextBox(){
 `TextBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setalign(a,'ES_CENTER','Center');
+    a_setalign(a,'ES_LEFT','Left');
+    a_setalign(a,'ES_RIGHT','Right');
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
