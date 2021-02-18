@@ -121,6 +121,11 @@ function t_setfontsize(a){
 ` + a + `.updateFont();
 `;
 }
+function t_setfontstrikethrough(a){
+    return a + `.cLogFont.lfStrikeOut = true;
+` + a + `.updateFont();
+`;
+}
 function t_setfontunderline(a){
     return a + `.cLogFont.lfUnderline = true;
 ` + a + `.updateFont();
@@ -218,6 +223,10 @@ function a_setfontsize(a){
     H('box','','Set Font Size',3,'');
     Pre('box','',t_setfontsize(a),'code');
 }
+function a_setfontstrikethrough(a){
+    H('box','','Set Font Strikethrough',3,'');
+    Pre('box','',t_setfontstrikethrough(a),'code');
+}
 function a_setfontunderline(a){
     H('box','','Set Font Underline',3,'');
     Pre('box','',t_setfontunderline(a),'code');
@@ -274,6 +283,7 @@ function Show_Control_Button(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -301,6 +311,7 @@ function Show_Control_CheckBox(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -325,6 +336,7 @@ function Show_Control_ComboBox(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -350,6 +362,7 @@ function Show_Control_Label(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -374,6 +387,7 @@ function Show_Control_ListBox(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -400,6 +414,7 @@ function Show_Control_RadioButton(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
@@ -426,6 +441,7 @@ function Show_Control_TextBox(){
     a_setfontfamily(a);
     a_setfontitalic(a);
     a_setfontsize(a);
+    a_setfontstrikethrough(a);
     a_setfontunderline(a);
     a_setheight(a);
     a_setleft(a);
