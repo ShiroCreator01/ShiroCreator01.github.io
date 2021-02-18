@@ -83,6 +83,12 @@ function t_setalign(a,b){
 SetWindowLong(` + a + `.control, GWL_STYLE, ` + a + `.dwStyle);
 `;
 }
+function t_label_setalign(a,b){
+    return a + `.dwStyle &= ~(SS_LEFT | SS_CENTER | SS_RIGHT;
+` + a + `.dwStyle |= ` + b + `;
+SetWindowLong(` + a + `.control, GWL_STYLE, ` + a + `.dwStyle);
+`;
+}
 function t_setflat(a){
     return a + `.dwStyle |= BS_FLAT;
 SetWindowLong(` + a + `.control,GWL_STYLE,` + a + `.dwStyle);
@@ -166,6 +172,14 @@ SetWindowPos(` + a + `.control, NULL, 0, 0, ` + a + `.width, ` + a + `.height, S
 GetClientRect(` + a + `.control, &` + a + `.cClientRect);
 `;
 }
+function a_label_setalign(a,b,c){
+    H('box','','Set Align ' + c,3,'');
+    Pre('box','',t_label_setalign(a,b),'code');
+}
+function a_setalign(a,b,c){
+    H('box','','Set Align ' + c,3,'');
+    Pre('box','',t_setalign(a,b),'code');
+}
 function a_combobox_addlist(a){
     H('box','','Add List',3,'');
     Pre('box','',t_combobox_addlist(a),'code');
@@ -173,10 +187,6 @@ function a_combobox_addlist(a){
 function a_listbox_addlist(a){
     H('box','','Add List',3,'');
     Pre('box','',t_listbox_addlist(a),'code');
-}
-function a_setalign(a,b,c){
-    H('box','','Set Align ' + c,3,'');
-    Pre('box','',t_setalign(a,b),'code');
 }
 function a_setflat(a){
     H('box','','Set Flat',3,'');
@@ -272,6 +282,9 @@ function Show_Control_CheckBox(){
 `CheckBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setalign(a,'BS_CENTER','Center');
+    a_setalign(a,'BS_LEFT','Left');
+    a_setalign(a,'BS_RIGHT','Right');
     a_setflat(a);
     a_setfont(a);
     a_setfontbold(a);
@@ -317,6 +330,9 @@ function Show_Control_Label(){
 `Label ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_label_setalign(a,'SS_CENTER','Center');
+    a_label_setalign(a,'SS_LEFT','Left');
+    a_label_setalign(a,'SS_RIGHT','Right');
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
@@ -361,6 +377,9 @@ function Show_Control_RadioButton(){
 `RadioButton ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setalign(a,'BS_CENTER','Center');
+    a_setalign(a,'BS_LEFT','Left');
+    a_setalign(a,'BS_RIGHT','Right');
     a_setflat(a);
     a_setfont(a);
     a_setfontbold(a);
