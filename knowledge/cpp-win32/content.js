@@ -305,8 +305,7 @@ function Show_Control_CheckBox(){
     a_setalign(a,'BS_CENTER','Center');
     a_setalign(a,'BS_LEFT','Left');
     a_setalign(a,'BS_RIGHT','Right');
-    a_setflat(a);
-    a_setfont(a);   
+    a_setflat(a); 
     a_setfontbold(a);
     a_setfontfamily(a);
     a_setfontitalic(a);
@@ -330,8 +329,7 @@ function Show_Control_ComboBox(){
 `ComboBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box'); 
-    a_combobox_addlist(a);
-    a_setfont(a);   
+    a_combobox_addlist(a);  
     a_setfontbold(a);
     a_setfontfamily(a);
     a_setfontitalic(a);
@@ -356,8 +354,7 @@ function Show_Control_Label(){
     Line('box');
     a_label_setalign(a,'SS_CENTER','Center');
     a_label_setalign(a,'SS_LEFT','Left');
-    a_label_setalign(a,'SS_RIGHT','Right');
-    a_setfont(a);   
+    a_label_setalign(a,'SS_RIGHT','Right');   
     a_setfontbold(a);
     a_setfontfamily(a);
     a_setfontitalic(a);
@@ -381,8 +378,7 @@ function Show_Control_ListBox(){
 `ListBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box'); 
-    a_listbox_addlist(a);
-    a_setfont(a);   
+    a_listbox_addlist(a);  
     a_setfontbold(a);
     a_setfontfamily(a);
     a_setfontitalic(a);
@@ -408,8 +404,7 @@ function Show_Control_RadioButton(){
     a_setalign(a,'BS_CENTER','Center');
     a_setalign(a,'BS_LEFT','Left');
     a_setalign(a,'BS_RIGHT','Right');
-    a_setflat(a);
-    a_setfont(a);   
+    a_setflat(a);   
     a_setfontbold(a);
     a_setfontfamily(a);
     a_setfontitalic(a);
@@ -435,8 +430,7 @@ function Show_Control_TextBox(){
     Line('box');
     a_textbox_setalign(a,'ES_CENTER','Center');
     a_textbox_setalign(a,'ES_LEFT','Left');
-    a_textbox_setalign(a,'ES_RIGHT','Right');
-    a_setfont(a);   
+    a_textbox_setalign(a,'ES_RIGHT','Right');  
     a_setfontbold(a);
     a_setfontfamily(a);
     a_setfontitalic(a);
