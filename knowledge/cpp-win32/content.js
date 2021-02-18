@@ -413,9 +413,9 @@ function Show_Control_TextBox(){
 `TextBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
-    a_setalign(a,'ES_CENTER','Center');
-    a_setalign(a,'ES_LEFT','Left');
-    a_setalign(a,'ES_RIGHT','Right');
+    a_textbox_setalign(a,'ES_CENTER','Center');
+    a_textbox_setalign(a,'ES_LEFT','Left');
+    a_textbox_setalign(a,'ES_RIGHT','Right');
     a_setfont(a);
     a_setfontbold(a);
     a_setfontitalic(a);
