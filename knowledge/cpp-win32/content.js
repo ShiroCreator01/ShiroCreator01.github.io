@@ -1,13 +1,14 @@
-function t_1(a,b,c,d){
+function t_1(a,b,c,d,e){
     return `#include <iostream>
 #include <windows.h>
 #include <vector>
+#include <commctrl.h>
 using namespace std;
 class ` + a + ` {
     public:
         HWND control = NULL;
         DWORD dwExStyle = 0;
-        char* clazz = "` + b + `";
+        char* clazz = ` + b + `;
         char* text = "` + d + `";
         DWORD dwStyle = WS_CHILD | WS_VISIBLE | BS_NOTIFY` + c +`;
         int left = 0;
@@ -21,7 +22,7 @@ class ` + a + ` {
         RECT cClientRect{0};
         vector<string> list;
         LOGFONT cLogFont;
-        HFONT cFont = nullptr;
+        HFONT cFont = nullptr;` + e + `
         ` + a + `(HWND parent){
             this->parent = parent;
             hInst = (HINSTANCE) GetWindowLongPtr(this->parent, GWLP_HINSTANCE);
@@ -150,6 +151,16 @@ SetWindowPos(` + a + `.control, NULL, ` + a + `.left, ` + a + `.top, 0, 0, SWP_N
 GetClientRect(` + a + `.control, &` + a + `.cClientRect);
 `;
 }
+function t_progressbar_setprogress(a){
+    return a + `.pbValue = 50;
+SendMessage(` + a + `.control, PBM_SETPOS, (WPARAM)` + a + `.pbValue, 0);
+`;
+}
+function t_progressbar_setrange(a){
+    return a + `.pbMin = 10; ` + a + `.pbMax = 110;
+SendMessage(` + a + `.control, PBM_SETRANGE, 0, MAKELPARAM(` + a + `.pbMin, ` + a + `.pbMax));
+`;
+}
 function t_setsize(a){
     return a + `.width = 150;
 ` + a + `.height = 150;
@@ -243,6 +254,14 @@ function a_setlocation(a){
     H('box','','Set Location',3,'');
     Pre('box','',t_setlocation(a),'code');   
 }
+function a_progressbar_setprogress(a){
+    H('box','','Set Progress',3,'');
+    Pre('box','',t_progressbar_setprogress(a),'code');   
+}
+function a_progressbar_setrange(a){
+    H('box','','Set Range',3,'');
+    Pre('box','',t_progressbar_setrange(a),'code');  
+}
 function a_setsize(a){
     H('box','','Set Size',3,'');
     Pre('box','',t_setsize(a),'code');   
@@ -270,7 +289,7 @@ function ChangeTitle(title){
 function Show_Control_Button(){
     var a = `btn1`;
     ChangeTitle('Button');
-    Pre('box','',t_1('Button','Button','','Click'),'code');
+    Pre('box','',t_1('Button','"Button"','','Click',''),'code');
     Pre('box','',
 `Button ` + a + `(hWnd);
 ` + a + `.create();`,'code');
@@ -297,7 +316,7 @@ function Show_Control_Button(){
 function Show_Control_CheckBox(){
     var a = `chkbox1`;
     ChangeTitle('CheckBox');
-    Pre('box','',t_1('CheckBox','Button',' | BS_AUTOCHECKBOX','Check 1'),'code');
+    Pre('box','',t_1('CheckBox','"Button"',' | BS_AUTOCHECKBOX','Check 1',''),'code');
     Pre('box','',
 `CheckBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
@@ -324,7 +343,7 @@ function Show_Control_CheckBox(){
 function Show_Control_ComboBox(){
     var a = `combobox1`;
     ChangeTitle('ComboBox');
-    Pre('box','',t_1('ComboBox','ComboBox',' | CBS_DROPDOWN | WS_VSCROLL',''),'code');
+    Pre('box','',t_1('ComboBox','"ComboBox"',' | CBS_DROPDOWN | WS_VSCROLL','',''),'code');
     Pre('box','',
 `ComboBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
@@ -347,7 +366,7 @@ function Show_Control_ComboBox(){
 function Show_Control_Label(){
     var a = `lbl1`;
     ChangeTitle('Label');
-    Pre('box','',t_1('Label','Static','','Label 1'),'code');
+    Pre('box','',t_1('Label','"Static"','','Label 1',''),'code');
     Pre('box','',
 `Label ` + a + `(hWnd);
 ` + a + `.create();`,'code');
@@ -373,7 +392,7 @@ function Show_Control_Label(){
 function Show_Control_ListBox(){
     var a = `lstbox1`;
     ChangeTitle('ListBox');
-    Pre('box','',t_1('ListBox','ListBox',' | WS_VSCROLL',''),'code');
+    Pre('box','',t_1('ListBox','"ListBox"',' | WS_VSCROLL','',''),'code');
     Pre('box','',
 `ListBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
@@ -393,10 +412,30 @@ function Show_Control_ListBox(){
     a_setwidth(a);
 }
 
+function Show_Control_ProgressBar(){
+    var a = `pb1`;
+    ChangeTitle('ProgressBar');
+    Pre('box','',t_1('ProgressBar','PROGRESS_CLASS','','',`
+        int pbMin = 0, pbMax = 100;
+        int pbValue = 0;`),'code');
+    Pre('box','',
+`ProgressBar ` + a + `(hWnd);
+` + a + `.create();`,'code');
+    Line('box'); 
+    a_setheight(a);
+    a_setleft(a);
+    a_setlocation(a);
+    a_progressbar_setprogress(a);
+    a_progressbar_setrange(a);
+    a_setsize(a);
+    a_settop(a);  
+    a_setwidth(a);
+}
+
 function Show_Control_RadioButton(){
     var a = `radiobutton1`;
     ChangeTitle('RadioButton');
-    Pre('box','',t_1('RadioButton','Button',' | BS_AUTORADIOBUTTON','Radio 1'),'code');
+    Pre('box','',t_1('RadioButton','"Button"',' | BS_AUTORADIOBUTTON','Radio 1',''),'code');
     Pre('box','',
 `RadioButton ` + a + `(hWnd);
 ` + a + `.create();`,'code');
@@ -423,7 +462,7 @@ function Show_Control_RadioButton(){
 function Show_Control_TextBox(){
     var a = `txtbox1`;
     ChangeTitle('TextBox');
-    Pre('box','',t_1('TextBox','Edit','','Text Here'),'code');
+    Pre('box','',t_1('TextBox','"Edit"','','Text Here',''),'code');
     Pre('box','',
 `TextBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
