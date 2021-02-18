@@ -77,6 +77,16 @@ for (int i = 0; i < ` + a + `.list.size(); i++){
 }
 `;
 }
+function t_setflat(a){
+    return a + `.dwStyle |= BS_FLAT;
+SetWindowLong(` + a + `.control,GWL_STYLE,` + a + `.dwStyle);
+`;
+}
+function t_setfont(a){
+    return `strcpy(` + a + `.cLogFont.lfFaceName,"Comic Sans MS");
+` + a + `.updateFont();
+`;
+}
 function t_setheight(a){
     return a + `.height = 150;
 SetWindowPos(` + a + `.control, NULL, 0, 0, ` + a + `.width, ` + a + `.height, SWP_NOMOVE);
@@ -129,6 +139,14 @@ function a_listbox_addlist(a){
     H('box','','Add List',3,'');
     Pre('box','',t_listbox_addlist(a),'code');
 }
+function a_setflat(a){
+    H('box','','Set Flat',3,'');
+    Pre('box','',t_setflat(a),'code');
+}
+function a_setfont(a){
+    H('box','','Set Font',3,'');
+    Pre('box','',t_setfont(a),'code');
+}
 function a_setheight(a){
     H('box','','Set Height',3,'');
     Pre('box','',t_setheight(a),'code'); 
@@ -172,6 +190,8 @@ function Show_Control_Button(){
 `Button ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setflat(a);
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -189,6 +209,8 @@ function Show_Control_CheckBox(){
 `CheckBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setflat(a);
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -207,6 +229,7 @@ function Show_Control_ComboBox(){
 ` + a + `.create();`,'code');
     Line('box'); 
     a_combobox_addlist(a);
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -223,6 +246,7 @@ function Show_Control_Label(){
 `Label ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -241,6 +265,7 @@ function Show_Control_ListBox(){
 ` + a + `.create();`,'code');
     Line('box'); 
     a_listbox_addlist(a);
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -257,6 +282,8 @@ function Show_Control_RadioButton(){
 `RadioButton ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setflat(a);
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
@@ -274,6 +301,7 @@ function Show_Control_TextBox(){
 `TextBox ` + a + `(hWnd);
 ` + a + `.create();`,'code');
     Line('box');
+    a_setfont(a);
     a_setheight(a);
     a_setleft(a);
     a_setlocation(a);
